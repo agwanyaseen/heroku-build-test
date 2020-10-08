@@ -22,7 +22,12 @@ namespace DocumentApi.Controllers
             return Ok(infor);
         }
 
-        
+        [HttpDelete]
+        public IActionResult Delete()
+        {
+            return Ok("Deleted Successfully!!");
+        }
+
         [HttpPost]
         public IActionResult Post(IFormFile file)
         {
