@@ -17,7 +17,13 @@ namespace DocumentApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var directory = Path.Combine(Directory.GetCurrentDirectory(),DirName);
+            var directory = Path.Combine(Directory.GetCurrentDirectory(), DirName);
+            var dir = Directory.Exists(directory);
+            if (!dir)
+            {
+                return BadRequest("No files Found");
+            }
+            //var directory = Path.Combine(Directory.GetCurrentDirectory(),DirName);
             var infor = Directory.GetFiles(directory);
             return Ok(infor);
         }
